@@ -27,7 +27,7 @@ router.post('/', [
   const user = await User.findOne({ email });
   if (user) return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
 
-  const avatar = `http:${gravatar.url(email, { s: '200', r: 'pg', d: 'mm' })}`;
+  const avatar = `https:${gravatar.url(email, { s: '200', r: 'pg', d: 'mm' })}`;
 
   const hash = await bcrypt.hash(password, 10);
   const newUser = new User({ name, email, avatar, password: hash });
