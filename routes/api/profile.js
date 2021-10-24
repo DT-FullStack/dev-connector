@@ -19,7 +19,7 @@ const User = require('../../models/User')
  * @access      Private
  */
 router.get('/me', auth, asyncWrap(async (req, res) => {
-  const profile = await Profile.findById(req.user.id).populate('user', ['name', 'avatar']);
+  const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
   if (!profile) return res.status(400).json({ errors: [{ msg: 'There is no profile for this user' }] });
   res.json(profile);
 }))
@@ -33,9 +33,9 @@ router.post('/', [auth, [
   check('status', 'Status is required').not().isEmpty(),
   check('skills', 'Skills is required').not().isEmpty(),
 ], errorCheck], asyncWrap(async (req, res) => {
-  const attrs = { company, website, location, bio, status, githubusername, skills, social } = req.body;
+  const attrs = { company, website, location, bio, status, githubusername, skills, twitter, facebook, linkedin, youtube, instagram } = req.body;
   attrs.user = req.user.id;
-
+  attrs.social = { ...{ twitter, facebook, linkedin, youtube, instagram } };
   /**
    * @description findOneAndUpdate takes three params
    * @param {object} findQuery
@@ -49,6 +49,7 @@ router.post('/', [auth, [
       upsert: true,
       returnDocument: 'after'
     }).populate('user', ['name', 'avatar'])
+  console.log(profile);
   res.json(profile);
 }))
 

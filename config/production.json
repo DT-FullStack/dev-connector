@@ -1,0 +1,6 @@
+{
+  "mongoURI":"mongodb+srv://bodywiz:5oq3DicSYGFhaD0G@cluster0.bgx89.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret":"myBigOldJwtSecret",
+  "githubClientId":"b49b4a5a113b98cede17",
+  "githubClientSecret":"c7d6ec14037bd4d340f1684ead65d0ebe251f4b6"
+}
