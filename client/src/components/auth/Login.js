@@ -18,7 +18,7 @@ const Login = ({ login, isAuthenticated }) => {
     login(formData);
   }
 
-  if (isAuthenticated) return <Redirect to="/dashboard" />
+  if (isAuthenticated) return <Redirect to="/profiles" />
 
   return (
     <Fragment>

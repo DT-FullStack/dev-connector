@@ -7,9 +7,15 @@ import { logout } from '../../actions/auth';
 const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const userLinks = (
     <Fragment>
-      <li><Link to="/posts">Community</Link></li>
-      <li><Link to="/dashboard">Dashboard</Link></li>
-      <li><a href="#!" onClick={logout}>Logout</a></li>
+      <li><Link to="/posts">Discussion</Link></li>
+      <li><Link to="/dashboard">
+        <i className="fas fa-user" />{' '}
+        <span className="hide-sm">Dashboard</span>
+      </Link></li>
+      <li><a href="#!" onClick={logout}>
+        <i className="fas fa-sign-out-alt" />{' '}
+        <span className="hide-sm">Logout</span>
+      </a></li>
     </Fragment>
   );
   const guestLinks = (

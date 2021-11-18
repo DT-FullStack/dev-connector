@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
 import PrivateRoute from './components/routing/PrivateRoute';
+import NotFound from './components/layout/NotFound';
 /**
  * REDUX
  */
@@ -21,6 +22,7 @@ import EducationForm from './components/profile/EducationForm';
 import Profiles from './components/profile/Profiles';
 import ProfileDisplay from './components/profile/ProfileDisplay';
 import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -56,6 +58,8 @@ const App = () => {
               <PrivateRoute exact path="/add-experience" component={ExperienceForm} />
               <PrivateRoute exact path="/add-education" component={EducationForm} />
               <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/posts/:id" component={Post} />
+              <Route component={NotFound} />
             </Switch>
           </section>
         </Fragment>

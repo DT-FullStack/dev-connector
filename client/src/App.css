@@ -151,9 +151,26 @@ img {
 .alert {
   padding: 0.8rem;
   margin: 1rem 0;
-  opacity: 0.9;
+  opacity: 0.95;
   background: var(--light-color);
   color: #333;
+  position: fixed;
+}
+
+.alert-0 {
+  top: 3rem
+}
+.alert-1 {
+  top: 5rem
+}
+.alert-2 {
+  top: 7rem
+}
+.alert-3 {
+  top: 9rem
+}
+.alert-4 {
+  top: 11rem
 }
 
 .btn-primary,
@@ -400,6 +417,7 @@ button {
 
 .profile-about .skills {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;

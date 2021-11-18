@@ -5,6 +5,9 @@ import { addPost } from '../../actions/post';
 
 const PostForm = ({ addPost }) => {
   const [text, setText] = useState('');
+  const [showingForm, setShowingForm] = useState(false);
+
+  if (!showingForm) return <button onClick={() => { setShowingForm(!showingForm) }} className='btn btn-light'>Add Post</button>;
 
   return (
     <div className='post-form'>
@@ -17,6 +20,7 @@ const PostForm = ({ addPost }) => {
           e.preventDefault();
           addPost({ text });
           setText('');
+          setShowingForm(!showingForm);
         }}
       >
         <textarea
@@ -29,6 +33,8 @@ const PostForm = ({ addPost }) => {
           required
         />
         <input type='submit' className='btn btn-dark my-1' value='Submit' />
+        <button onClick={e => { e.preventDefault(); setShowingForm(!showingForm) }} className='btn btn-light my-1' value='Submit'>Cancel</button>
+
       </form>
     </div>
   );
