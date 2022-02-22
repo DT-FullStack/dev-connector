@@ -16,7 +16,7 @@ const ProfileDisplay = ({ profile: { profile, loading }, auth, match, getProfile
   if (loading || !profile) return null;
 
   return (
-    <Fragment>
+    <div className='container'>
       <Link to="/profiles" className="btn btn-light">
         Back To Profiles
       </Link>
@@ -42,7 +42,7 @@ const ProfileDisplay = ({ profile: { profile, loading }, auth, match, getProfile
               ))}
             </Fragment>
           ) : (
-            <h4>No experience credentials</h4>
+            <h4>No experience listed</h4>
           )}
         </div>
 
@@ -58,7 +58,7 @@ const ProfileDisplay = ({ profile: { profile, loading }, auth, match, getProfile
               ))}
             </Fragment>
           ) : (
-            <h4>No education credentials</h4>
+            <h4>No education listed</h4>
           )}
         </div>
 
@@ -66,7 +66,7 @@ const ProfileDisplay = ({ profile: { profile, loading }, auth, match, getProfile
           <ProfileGithub username={profile.githubusername} />
         )}
       </div>
-    </Fragment>
+    </div>
   )
 }
 

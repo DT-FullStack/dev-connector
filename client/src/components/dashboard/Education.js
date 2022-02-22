@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteEducation } from '../../actions/profile';
 import formatDate from '../../utils/formatDate';
+import { Link } from 'react-router-dom';
 
 const Education = ({ education, deleteEducation }) => {
   const educations = education.map((edu) => (
@@ -26,7 +27,10 @@ const Education = ({ education, deleteEducation }) => {
   if (!education.length) return null;
   return (
     <Fragment>
-      <h2 className="my-2">Education Credentials</h2>
+      <h2 className="my-1">
+        Your Education
+        <Link to="/add-education" className="btn mx-1"><i className="fa-solid fa-plus text-primary"></i></Link>
+      </h2>
       <table className="table">
         <thead>
           <tr>

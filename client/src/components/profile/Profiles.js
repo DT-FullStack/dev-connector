@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from "react-redux";
 import { getProfiles } from '../../actions/profile';
@@ -9,17 +9,20 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     getProfiles()
   }, [getProfiles])
 
-  const renderProfiles = () => profiles.map(p => <ProfileCard key={p._id} profile={p} />)
+  const renderProfiles = () => {
+    return loading ? <div>Loading...</div>
+      : profiles.length === 0 ? <div>No Users</div>
+        : profiles.map(p => <ProfileCard key={p._id} profile={p} />)
+  }
 
   return (
-    <Fragment>
-      <h1 className='large text-primary'>Developers</h1>
+    <div className='container'>
+      <h1 className='large text-primary'>Users</h1>
       <p className='lead'>
-        <i className='fab fa-connectdevelop' /> Browse and connect with
-        developers
+        <i className='fab fa-connectdevelop' /> Browse and connect with other users
       </p>
       {renderProfiles()}
-    </Fragment>
+    </div>
   )
 }
 

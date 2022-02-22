@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteExperience } from '../../actions/profile';
 import formatDate from '../../utils/formatDate';
+import { Link } from 'react-router-dom';
 
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
@@ -26,7 +27,10 @@ const Experience = ({ experience, deleteExperience }) => {
   if (!experience.length) return null;
   return (
     <Fragment>
-      <h2 className="my-2">Experience Credentials</h2>
+      <h2 className="my-1">
+        Your Experience
+        <Link to="/add-education" className="btn mx-1"><i className="fa-solid fa-plus text-primary"></i></Link>
+      </h2>
       <table className="table">
         <thead>
           <tr>

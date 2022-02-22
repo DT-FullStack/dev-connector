@@ -33,6 +33,8 @@ const App = () => {
     store.dispatch(loadUser(), []);
   });
 
+
+
   /** 
    * Just an interesting note.... the two routes `/create-profile` and `/edit-profile` are literally the same exact shit.
    * They are two different routes that load the same page
@@ -44,24 +46,22 @@ const App = () => {
       <Router>
         <Fragment>
           <NavBar />
-          <Route exact path="/" component={Landing} />
-          <section className="container">
-            <Alert />
-            <Switch>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/profiles" component={Profiles} />
-              <Route exact path="/profile/:id" component={ProfileDisplay} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/create-profile" component={ProfileForm} />
-              <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
-              <PrivateRoute exact path="/add-experience" component={ExperienceForm} />
-              <PrivateRoute exact path="/add-education" component={EducationForm} />
-              <PrivateRoute exact path="/posts" component={Posts} />
-              <PrivateRoute exact path="/posts/:id" component={Post} />
-              <Route component={NotFound} />
-            </Switch>
-          </section>
+          <Alert />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/profiles" component={Profiles} />
+            <Route exact path="/profile/:id" component={ProfileDisplay} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/create-profile" component={ProfileForm} />
+            <PrivateRoute exact path="/edit-profile" component={ProfileForm} />
+            <PrivateRoute exact path="/add-experience" component={ExperienceForm} />
+            <PrivateRoute exact path="/add-education" component={EducationForm} />
+            <PrivateRoute exact path="/posts" component={Posts} />
+            <PrivateRoute exact path="/posts/:id" component={Post} />
+            <Route path="*" component={NotFound} />
+          </Switch>
         </Fragment>
       </Router>
     </Provider>
